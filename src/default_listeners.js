@@ -58,6 +58,14 @@ bot.addListener('join' + CHANNEL, function(nick) {
 });
 
 /*
+ * Handler de exceções não capturadas
+ */
+
+bot.addListener('error', function() {
+  console.log('Internal Error');
+});
+
+/*
  * Método para simplificar o envio de mensagens
  */
 

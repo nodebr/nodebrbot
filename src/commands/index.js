@@ -14,6 +14,6 @@ bot.addListener('message' + CHANNEL, function(from, message) {
     require('./' + command).run(bot, data, args, function() {});
   } catch(err) {
     bot.message('Comando não encontrado :\'(');
-    bot.message('Para receber um PVT com a lista de comandos digite: !comandos');
+    bot.message('Para visualizar a lista de comandos digite: !comandos');
   }
 });
