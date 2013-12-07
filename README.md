@@ -16,8 +16,20 @@ Um robô para o canal #nodebr na Freenode.
 
 * !recorde (Mostra o pico de usuários simultâneos registrado no canal. Exemplo: !recorde)
 
+## Como utilizar
+
+    $ git clone https://github.com/zonetti/nodebrbot.git
+    $ cd nodebrbot
+    $ [sudo] npm install
+    $ node app.js
+
+Após a inicialização, em poucos segundos ele deve se conectar ao canal indicado no [config.json][config].
+
+Para rodar os testes: `npm test` ou `make test`.
+
 ## Contribua
 
 Saiba como adicionar novos comandos através deste [exemplo][exemplo].
 
 [exemplo]: https://github.com/zonetti/nodebrbot/blob/master/src/commands/hello.js
+[config]: https://github.com/zonetti/nodebrbot/blob/master/config.json
