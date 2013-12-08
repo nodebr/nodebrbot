@@ -6,15 +6,15 @@ Um robô para o canal #nodebr na Freenode.
 
 ## Comandos atuais
 
-* !comandos (Exibe uma lista com todos os comandos existentes. Exemplo: !comandos)
+* !comandos (Exibe uma lista com todos os comandos existentes)
 
-* !npm (Busca descrição de módulo. Exemplo: !npm express)
+* !npm <modulo> (Busca a descrição de um módulo através do [npmjs.org][npm])
 
-* !frase (Mostra uma frase aleatória. Exemplo: !frase)
+* !frase (Apresenta uma frase aleatória)
 
-* !hello (Envia "Hello world". Exemplo: !hello)
+* !hello (Apresenta "Hello world")
 
-* !recorde (Mostra o pico de usuários simultâneos registrado no canal. Exemplo: !recorde)
+* !recorde (Apresenta o pico de usuários simultâneos registrado no canal)
 
 ## Como utilizar
 
@@ -33,3 +33,4 @@ Saiba como adicionar novos comandos através deste [exemplo][exemplo].
 
 [exemplo]: https://github.com/zonetti/nodebrbot/blob/master/src/commands/hello.js
 [config]: https://github.com/zonetti/nodebrbot/blob/master/config.json
+[npm]: https://npmjs.org/
