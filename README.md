@@ -23,7 +23,7 @@ Um robô para o canal #nodebr na Freenode.
     $ [sudo] npm install
     $ node app.js
 
-Após a inicialização, em poucos segundos ele deve se conectar ao canal indicado no [config.json][config].
+Em poucos segundos após a inicialização o bot deve se conectar ao canal indicado no [config.json][config].
 
 Para rodar os testes: `npm test` ou `make test`.
 
