@@ -6,8 +6,9 @@ var valorAuxiliar = require(__dirname + '/../src/commands/hello').valorAuxiliar;
 describe('!hello', function() {
 
   it('!hello', function(done) {
-    hello('', function(output) {
-      output.should.be.equal(valorAuxiliar);
+    hello('', 'meunick', function(output) {
+      output.should.contain('meunick');
+      output.should.contain(valorAuxiliar);
       done();
     });
   });

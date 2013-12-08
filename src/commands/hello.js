@@ -29,8 +29,8 @@ var valorAuxiliar = 'Hello world';
  * IMPORTANTE: Todos os comandos possuem a mesma
  * assinatura de função, sendo os parâmetros:
  *
- *   bot: a instância do robô (utilizada para 
- *        enviar mensagens basicamente)
+ *    bot: a instância do robô (utilizada para 
+ *         enviar mensagens basicamente)
  *
  *   data: a instância do "cubby" (módulo utilizado
  *         para persistência em JSON).
@@ -41,15 +41,17 @@ var valorAuxiliar = 'Hello world';
  *         Este comando, por exemplo: !hello lorem ipsum
  *         Irá receber como "args": ['lorem', 'ipsum']
  *
- *   end: IMPORTANTE! Callback que DEVE ser chamado
- *        no final do comando. (para fins de testes)
+ *   nick: nick do usuário que disparou o comando
+ *
+ *    end: IMPORTANTE! Callback que DEVE ser chamado
+ *         no final do comando. (para fins de testes)
  *
  * IMPORTANTE: Para fins de testes, o comando só termina
  * quando o callback "end" é chamado, ou quando retorna false.
  */
 
-var hello = function(bot, data, args, end) {
-  bot.message(valorAuxiliar);
+var hello = function(bot, data, nick, args, end) {
+  bot.message(nick + ', ' + valorAuxiliar);
   end();
 };
 

@@ -1,5 +1,6 @@
 {
   "server": "irc.freenode.net",
-  "nick": "__nodebr_b0t",
-  "channel": "#nodebr"
+  "nick": "nodebrbot",
+  "channel": "#nodebr",
+  "logger": false
 }

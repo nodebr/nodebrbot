@@ -5,7 +5,15 @@ var commandsPath = __dirname + '/../../src/commands/';
 
 module.exports = function(command) {
 
-  return function(args, done) {
+  return function(args, nick, done) {
+
+    // caso não seja especificado um nick
+
+    if (typeof done == 'undefined') {
+      done = nick;
+      nick = 'nickpadrao';
+    }
+
     var output = '';
     bot.on('message', function(message) {
       output += message;
@@ -13,7 +21,7 @@ module.exports = function(command) {
 
     args = args.split(' ');
 
-    var result = require(commandsPath + command).run(bot, data, args, function() {
+    var result = require(commandsPath + command).run(bot, data, nick, args, function() {
       return done(output);
     });
 

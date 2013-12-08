@@ -1,6 +1,11 @@
+/*
+ * Apresenta a descrição e a URL de determinado
+ * módulo do npmjs.org
+ */
+
 var scrap = require('scrap');
 
-var npm = function(bot, data, args, end) {
+var npm = function(bot, data, nick, args, end) {
 
   var module = args[0];
 

@@ -3,7 +3,14 @@ var should = require('should');
 var recorde = require('./mocks/exec')('recorde');
 var data = require('./mocks/data');
 
+var cleanData = function() {
+  data.empty();
+};
+
 describe('!recorde', function() {
+
+  before(cleanData);
+  after(cleanData);
 
   it('!recorde', function(done) {
     recorde('', function(output) {

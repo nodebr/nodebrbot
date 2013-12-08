@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var bot = module.parent.exports.bot;
 var data = module.parent.exports.data;
 
@@ -9,13 +11,17 @@ var CHANNEL = require(__dirname + '/../config.json').channel;
  */
 
 bot.addListener('message' + CHANNEL, function(from, message) {
-  var userMessagesPath = 'core.user_messages.' + from;
+  var userMessagesPath = 'core.user_messages';
   var userMessages = data.getPath(userMessagesPath);
 
   if (typeof userMessages === 'undefined') {
-    userMessages = 1;
+    userMessages = {};
+  }
+
+  if (typeof userMessages[from] === 'undefined') {
+    userMessages[from] = 1;
   } else {
-    userMessages++;
+    userMessages[from]++;
   }
 
   data.setPath(userMessagesPath, userMessages);
@@ -26,6 +32,14 @@ bot.addListener('message' + CHANNEL, function(from, message) {
  */
 
 bot.addListener('names' + CHANNEL, function(nicks) {
+  var usersPath = 'core.users';
+  var users = data.getPath(usersPath);
+
+  if (typeof users === 'undefined' || users.length === 1) {
+    users = Object.keys(nicks);
+    data.setPath(usersPath, users);
+  }
+
   var recordPath = 'core.record';
   var record = data.getPath(recordPath);
 
@@ -45,7 +59,7 @@ bot.addListener('join' + CHANNEL, function(nick) {
   var users = data.getPath(usersPath);
 
   if (typeof users === 'undefined') {
-    users = [NICK];
+    users = [nick];
     data.setPath(usersPath, users);
   }
 
@@ -54,6 +68,10 @@ bot.addListener('join' + CHANNEL, function(nick) {
     data.setPath(usersPath, users);
     bot.message(nick + ', notei que é novo no canal, seja bem vindo :)');
   }
+
+  // dispara o evento acima ('names' + CHANNEL)
+  // para atualizar o recorde se necessário
+
   bot.send('NAMES', CHANNEL);
 });
 
@@ -63,6 +81,18 @@ bot.addListener('join' + CHANNEL, function(nick) {
 
 bot.addListener('error', function() {
   console.log('Internal Error');
+});
+
+/*
+ * Visualizar conteúdo do arquivo data.json
+ * ao enviar "data" para o robô por PVT
+ */
+
+bot.addListener('pm', function(from, message) {
+  if (message !== 'data') return;
+
+  var dataFile = fs.readFileSync(__dirname + '/../data.json').toString();
+  bot.say(from, dataFile);
 });
 
 /*

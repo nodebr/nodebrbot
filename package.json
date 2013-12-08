@@ -1,6 +1,6 @@
 {
   "name": "nodebrbot",
-  "version": "0.0.1alpha",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "test": "make test"
