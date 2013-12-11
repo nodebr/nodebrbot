@@ -1,6 +1,8 @@
 var bot = require('./bot');
 var data = require('./data');
 
+bot.setMaxListeners();
+
 var commandsPath = __dirname + '/../../src/commands/';
 
 module.exports = function(command) {
