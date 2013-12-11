@@ -39,4 +39,18 @@ describe('!eval', function() {
     });
   });
 
+  it('!eval process.exit(1);', function(done) {
+    _eval('process.exit(1);', function(output) {
+      output.should.contain('Expressão inválida');
+      done();
+    });
+  });
+
+  it('!eval require(\'fs\');', function(done) {
+    _eval('require(\'fs\');', function(output) {
+      output.should.contain('Expressão inválida');
+      done();
+    });
+  });
+
 });
