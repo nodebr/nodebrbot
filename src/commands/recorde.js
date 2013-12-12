@@ -3,7 +3,7 @@
  * registrado no canal
  */
 
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 var TIMEZONE = require(__dirname + '/../../config.json').timezone;
 
