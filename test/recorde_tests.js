@@ -20,9 +20,13 @@ describe('!recorde', function() {
   });
 
   it('!recorde (valor alterado manualmente)', function(done) {
-    data.setPath('core.record', 10);
+    data.setPath('core.record', {
+      value: 10,
+      when: new Date()
+    });
     recorde('', function(output) {
-      output.should.contain('10');
+      output.should.contain('Recorde atual (usuários simultâneos): 10');
+      output.should.contain('Registrado em');
       done();
     });
   });

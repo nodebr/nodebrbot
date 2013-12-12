@@ -6,7 +6,8 @@
  * !hn random - apresenta uma notícia aleatória
  *
  * TODO: Utilizar alguma API (mesmo que não oficial)
- * do Hacker News para evitar fazer scraping
+ * para buscar informações do Hacker News ao invés
+ * de fazer scraping
  */
 
 var scrap = require('scrap');
@@ -20,7 +21,9 @@ var hn = function(bot, data, nick, args, end) {
     return false;
   }
 
-  scrap('https://news.ycombinator.com', function(err, $) {
+  var hackerNewsURL = 'https://news.ycombinator.com/';
+
+  scrap(hackerNewsURL, function(err, $) {
     if (err) {
       bot.message('Erro ao requisitar Hacker News');
       return false;
@@ -35,12 +38,22 @@ var hn = function(bot, data, nick, args, end) {
         currentItem = {};
       }
 
-      if ($(this).find('td.title a').length == 1) {
+      // scraping do título e da URL da notícia
+
+      if ($(this).find('td.title a').length === 1) {
         currentItem.title = $(this).find('td.title a').text();
         currentItem.url = $(this).find('td.title a').attr('href');
       }
 
-      if ($(this).find('td.subtext').length == 1) {
+      if ($(this).find('td.subtext').length === 1) {
+
+        // scraping da URL da thread da notícia e da quantidade
+
+        var threadURI = $(this).find('td.subtext a').next().attr('href');
+        currentItem.thread = hackerNewsURL + threadURI;
+
+        // scraping da quantidade de pontos e comentários
+
         var subtext = $(this).find('td.subtext').text().split(' ');
         currentItem.points = parseInt(subtext[0]);
         if (!isNaN(subtext[subtext.length - 2])) {
@@ -48,13 +61,16 @@ var hn = function(bot, data, nick, args, end) {
         } else {
           currentItem.comments = 0;
         }
+
+        // terminando de "parsear" a notícia
+
         currentItem.done = true;
       }
     });
 
     function printItem(item) {
-      bot.message(item.title);
-      bot.message('Link: ' + item.url);
+      bot.message(item.title + ' (' + item.url + ')');
+      bot.message('HN: ' + item.thread);
       bot.message('Pontos: ' + item.points + ' | Comentários: ' + item.comments);
       end();
     }

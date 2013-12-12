@@ -20,6 +20,7 @@ describe('!hn', function() {
 
   it('!hn top', function(done) {
     hn('top', function(output) {
+      output.should.contain('HN:');
       output.should.contain('Pontos');
       output.should.contain('Comentários');
       done();
@@ -28,6 +29,7 @@ describe('!hn', function() {
 
   it('!hn random', function(done) {
     hn('random', function(output) {
+      output.should.contain('HN:');
       output.should.contain('Pontos');
       output.should.contain('Comentários');
       done();

@@ -1,6 +1,6 @@
 {
   "name": "nodebrbot",
-  "version": "0.0.2",
+  "version": "0.0.2b",
   "private": true,
   "scripts": {
     "test": "make test"
@@ -8,6 +8,7 @@
   "dependencies": {
     "irc": "~0.3.6",
     "cubby": "0.0.3",
+    "moment": "~2.4.0",
     "scrap": "~0.1.0"
   },
   "devDependencies": {

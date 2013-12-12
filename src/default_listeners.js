@@ -1,4 +1,5 @@
 var fs = require('fs');
+var moment = require('moment');
 
 var bot = module.parent.exports.bot;
 var data = module.parent.exports.data;
@@ -43,10 +44,13 @@ bot.addListener('names' + CHANNEL, function(nicks) {
   var recordPath = 'core.record';
   var record = data.getPath(recordPath);
 
-  if (typeof record === 'undefined' || Object.keys(nicks).length > record) {
-    record = Object.keys(nicks).length;
+  if (typeof record === 'undefined' || Object.keys(nicks).length > record.value) {
+    record = {
+      value: Object.keys(nicks).length,
+      when: moment().format()
+    };
     data.setPath(recordPath, record);
-    bot.message('Batemos um novo recorde: ' + record + ' usuários simultâneos!');
+    bot.message('Batemos um novo recorde: ' + record.value + ' usuários simultâneos!');
   }
 });
 
