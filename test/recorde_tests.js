@@ -14,7 +14,8 @@ describe('!recorde', function() {
 
   it('!recorde', function(done) {
     recorde('', function(output) {
-      output.should.contain('1');
+      output.should.contain('Recorde atual (usuários simultâneos): 1');
+      output.should.contain('Registrado em');
       done();
     });
   });
