@@ -3,7 +3,7 @@
  * registrado no canal
  */
 
-var moment = require('moment-timezone');
+var moment = require('moment');
 
 var TIMEZONE = require(__dirname + '/../../config.json').timezone;
 
@@ -13,7 +13,7 @@ var recorde = function(bot, data, nick, args, end) {
   if (typeof record === 'undefined') {
     record = {
       value: 1,
-      when: moment().tz(TIMEZONE).format()
+      when: moment().format()
     }
     data.setPath('core.record', record);
   }

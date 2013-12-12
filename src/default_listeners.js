@@ -1,12 +1,11 @@
 var fs = require('fs');
-var moment = require('moment-timezone');
+var moment = require('moment');
 
 var bot = module.parent.exports.bot;
 var data = module.parent.exports.data;
 
 var NICK = require(__dirname + '/../config.json').nick;
 var CHANNEL = require(__dirname + '/../config.json').channel;
-var TIMEZONE = require(__dirname + '/../config.json').timezone;
 
 /*
  * Alimenta um contador de mensagens para cada usuário
@@ -48,7 +47,7 @@ bot.addListener('names' + CHANNEL, function(nicks) {
   if (typeof record === 'undefined' || Object.keys(nicks).length > record.value) {
     record = {
       value: Object.keys(nicks).length,
-      when: moment().tz(TIMEZONE).format()
+      when: moment().format()
     };
     data.setPath(recordPath, record);
     bot.message('Batemos um novo recorde: ' + record.value + ' usuários simultâneos!');
