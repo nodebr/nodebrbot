@@ -1,6 +1,4 @@
-# nodebrbot
-
-[![Build Status](https://secure.travis-ci.org/zonetti/nodebrbot.png)](http://travis-ci.org/zonetti/nodebrbot)
+# nodebrbot [![Build Status](https://secure.travis-ci.org/zonetti/nodebrbot.png)](http://travis-ci.org/zonetti/nodebrbot)
 
 Um robô para o canal #nodebr na Freenode.
 
