@@ -2,5 +2,6 @@
   "server": "irc.freenode.net",
   "nick": "nodebrbot",
   "channel": "#nodebr",
-  "logger": false
+  "logger": false,
+  "timezone": "America/Sao_Paulo"
 }

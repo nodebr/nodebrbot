@@ -9,6 +9,7 @@
     "irc": "~0.3.6",
     "cubby": "0.0.3",
     "moment": "~2.4.0",
+    "moment-timezone": "0.0.3",
     "scrap": "~0.1.0"
   },
   "devDependencies": {
