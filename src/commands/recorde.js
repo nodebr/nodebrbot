@@ -5,8 +5,6 @@
 
 var moment = require('moment');
 
-var TIMEZONE = require(__dirname + '/../../config.json').timezone;
-
 var recorde = function(bot, data, nick, args, end) {
   var record = data.getPath('core.record');
 
