@@ -105,4 +105,4 @@ bot.addListener('pm', function(from, message) {
 
 bot.message = function(message) {
   bot.say(CHANNEL, message);
-}
+};
