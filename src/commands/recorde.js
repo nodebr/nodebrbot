@@ -12,7 +12,7 @@ var recorde = function(bot, data, nick, args, end) {
     record = {
       value: 1,
       when: moment().format()
-    }
+    };
     data.setPath('core.record', record);
   }
 
