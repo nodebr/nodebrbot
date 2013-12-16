@@ -4,14 +4,13 @@ var moment = require('moment');
 var bot = module.parent.exports.bot;
 var data = module.parent.exports.data;
 
-var NICK = require(__dirname + '/../config.json').nick;
 var CHANNEL = require(__dirname + '/../config.json').channel;
 
 /*
  * Alimenta um contador de mensagens para cada usuário
  */
 
-bot.addListener('message' + CHANNEL, function(from, message) {
+bot.addListener('message' + CHANNEL, function(from) {
   var userMessagesPath = 'core.user_messages';
   var userMessages = data.getPath(userMessagesPath);
 
