@@ -1,4 +1,3 @@
-var fs = require('fs');
 var moment = require('moment');
 
 var bot = module.parent.exports.bot;
@@ -84,18 +83,6 @@ bot.addListener('join' + CHANNEL, function(nick) {
 
 bot.addListener('error', function() {
   console.log('Internal Error');
-});
-
-/*
- * Visualizar conteúdo do arquivo data.json
- * ao enviar "data" para o robô por PVT
- */
-
-bot.addListener('pm', function(from, message) {
-  if (message !== 'data') return;
-
-  var dataFile = fs.readFileSync(__dirname + '/../data.json').toString();
-  bot.say(from, dataFile);
 });
 
 /*
