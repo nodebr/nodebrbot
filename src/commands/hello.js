@@ -29,7 +29,7 @@ var valorAuxiliar = 'Hello world';
  * IMPORTANTE: Todos os comandos possuem a mesma
  * assinatura de função, sendo os parâmetros:
  *
- *    bot: a instância do robô (utilizada para 
+ *    bot: a instância do robô (utilizada para
  *         enviar mensagens basicamente)
  *
  *   data: a instância do "cubby" (módulo utilizado

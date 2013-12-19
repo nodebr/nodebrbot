@@ -30,6 +30,9 @@ bot.addListener('message' + CHANNEL, function(from, message) {
     // callback vazio para fins de testes
     require('./' + command).run(bot, data, from, args, function() {});
   } catch(err) {
+    if (LOGGER) {
+      util.log('Erro ao excutar comando', err);
+    }
     bot.message('Comando não encontrado :\'(');
     bot.message('Para visualizar a lista completa de comandos digite: !comandos');
   }

@@ -6,6 +6,8 @@ Um robô para o canal #nodebr na Freenode.
 
 * !comandos (Exibe uma lista com todos os comandos existentes)
 
+* !eval <comando> (Executa o comando dentro da V8 e retorna o resultado)
+
 * !npm <modulo> (Busca a descrição de um módulo através do [npmjs.org][npm])
 
 * !frase (Apresenta uma frase aleatória)
@@ -28,6 +30,16 @@ Um robô para o canal #nodebr na Freenode.
 Em poucos segundos após a inicialização o bot deve se conectar ao canal indicado no [config.json][config].
 
 Para rodar os testes: `npm test` ou `make test`.
+
+## Compilando o shell para utilizar no bot
+
+    $ svn co http://v8.googlecode.com/svn/trunk v8-trunk
+    $ cd v8-trunk && make dependencies
+    $ make native
+
+
+O executável do shell deve estar dentro da pasta `./out/native`, é necesário incluir o path
+inteiro (com o executável) no [config.json][config];
 
 ## Contribua
 
