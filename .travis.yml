@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - "0.8"
-  - "0.10.23"
-  - "0.11.9"
+  - "0.10"
+  - "0.11"
 before_script:
   - wget http://zonetti.com/misc/shell-v8
   - sudo install -v shell-v8 /usr/bin/shell-v8

@@ -5,6 +5,7 @@
 
 var spawn = require('child_process').spawn;
 var config = require(__dirname + '/../../config.json');
+var _str = require('underscore.string');
 
 var _eval = function(bot, data, nick, args, end) {
   var v8 = spawn(config.shell);
@@ -47,7 +48,7 @@ var _eval = function(bot, data, nick, args, end) {
    */
   v8.stderr.setEncoding('utf8');
   v8.stderr.on('data', function(data) {
-    if (data.indexOf('V8 version') === -1 && data.charAt(0) !== '>') {
+    if (data.indexOf('V8 version') === -1 && data.charAt(0) !== '>' && !_str.isBlank(data)) {
       terminar(nick + ', ' + data.replace('(shell):1: ', ''));
     }
   });
