@@ -1,7 +1,7 @@
 {
   "server": "irc.freenode.net",
-  "nick": "nodebrbot_alan",
+  "nick": "nodebrbot",
   "channel": "#nodebr",
-  "logger": false,
-  "shell" : "/path/para/o/shell"
+  "shell" : "/usr/bin/shell-v8",
+  "logger": false
 }

@@ -2,7 +2,7 @@ REPORTER=spec
 
 test: hint
 	@./node_modules/.bin/mocha \
-		--reporter $(REPORTER) -b -t 10000 test/*.js
+		--reporter $(REPORTER) -t 10000 test/*.js
 
 test-watch:
 	@./node_modules/.bin/mocha \
