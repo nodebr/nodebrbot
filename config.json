@@ -3,5 +3,5 @@
   "nick": "nodebrbot_alan",
   "channel": "#nodebr",
   "logger": false,
-  "shell" : "/path/para/o/shell"
+  "shell" : "/home/alan/Projetos/teste/v8-trunk/out/native/shell"
 }

@@ -21,6 +21,13 @@ exports.run = function(bot, data, nick, args, end){
   }
 
   /*
+   * Evitamos loops infinitos
+   */
+  var timer = setTimeout(function(){
+    terminar(nick + ', ocorreu um erro: seu comando demorou muito para terminar.');
+  }, 2000);
+
+  /*
    * Enviar apenas uma msg e terminar o que temos pra fazer aqui..
    */
   var terminar = function(msg){
@@ -29,6 +36,7 @@ exports.run = function(bot, data, nick, args, end){
 
     terminado = true;
 
+    clearTimeout(timer);
     bot.message(msg);
     v8.kill();
     end();

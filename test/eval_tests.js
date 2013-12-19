@@ -11,4 +11,11 @@ describe('!eval', function() {
     });
   });
 
+  it('!eval não pode entrar em loop infinito', function(done) {
+    _eval('while(true){}', function(output) {
+      output.should.contain('demorou muito para terminar');
+      done();
+    });
+  });
+
 });
