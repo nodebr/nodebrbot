@@ -3,6 +3,5 @@ node_js:
   - "0.8"
   - "0.10"
 before_script:
-  - git clone git://github.com/v8/v8.git
-  - cd v8 && make dependencies && make native
-  - sudo install -v out/native/shell /usr/bin/shell-v8
+  - wget http://zonetti.com/misc/shell-v8
+  - sudo install -v shell-v8 /usr/bin/shell-v8

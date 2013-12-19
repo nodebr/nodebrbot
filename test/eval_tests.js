@@ -18,4 +18,11 @@ describe('!eval', function() {
     });
   });
 
+  it('!eval var soma=function(n1,n2){return n1+n2;};soma(2,3);', function(done) {
+    _eval('var soma=function(n1,n2){return n1+n2;};soma(2,3);', function(output) {
+      output.should.contain(5);
+      done();
+    });
+  });
+
 });

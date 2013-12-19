@@ -31,15 +31,14 @@ Em poucos segundos após a inicialização o bot deve se conectar ao canal indic
 
 Para rodar os testes: `npm test` ou `make test`.
 
-## Compilando o shell para utilizar no bot
+## Compilando o shell do V8 (necessário para o comando !eval)
 
     $ svn co http://v8.googlecode.com/svn/trunk v8-trunk
     $ cd v8-trunk && make dependencies
     $ make native
 
 
-O executável do shell deve estar dentro da pasta `./out/native`, é necesário incluir o path
-inteiro (com o executável) no [config.json][config];
+Depois de compilado, atualize o [config.json][config] modificando a propriedade `shell` para o caminho absoluto do shell do V8, que após a compilação neste exemplo, pode ser encontrado em `v8-trunk/out/native/shell`.
 
 ## Contribua
 
