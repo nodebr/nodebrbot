@@ -11,12 +11,13 @@ module.exports = function(command) {
 
     // caso não seja especificado um nick
 
-    if (typeof done == 'undefined') {
+    if (typeof done === 'undefined') {
       done = nick;
       nick = 'nickpadrao';
     }
 
     var output = '';
+
     bot.on('message', function(message) {
       output += message;
     });
