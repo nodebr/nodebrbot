@@ -9,6 +9,6 @@ test-watch:
 		--reporter $(REPORTER) -b -t 10000 -w test/*.js
 
 hint:
-	@./node_modules/.bin/jshint src
+	@./node_modules/.bin/jshint src test
 
 .PHONY: test test-watch

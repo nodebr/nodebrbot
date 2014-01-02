@@ -13,5 +13,11 @@
   "trailing": true,   // true: Prohibit trailing whitespaces
   "maxlen": 100,      // {int} Max number of characters per line
   "maxcomplexity": 5, // {int} Max cyclomatic complexity per function
-  "indent": 2         // {int} Number of spaces to use for indentation
+  "indent": 2,        // {int} Number of spaces to use for indentation
+  "globals": {
+    "describe": true,
+    "before": true,
+    "after": true,
+    "it": true
+  }
 }

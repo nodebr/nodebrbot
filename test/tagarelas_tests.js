@@ -1,4 +1,4 @@
-var should = require('should');
+require('should');
 
 var data = require('./mocks/data');
 var tagarelas = require('./mocks/exec')('tagarelas');

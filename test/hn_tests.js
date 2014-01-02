@@ -1,4 +1,4 @@
-var should = require('should');
+require('should');
 
 var hn = require('./mocks/exec')('hn');
 

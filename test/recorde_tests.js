@@ -1,4 +1,4 @@
-var should = require('should');
+require('should');
 
 var recorde = require('./mocks/exec')('recorde');
 var data = require('./mocks/data');

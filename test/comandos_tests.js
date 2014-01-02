@@ -1,4 +1,4 @@
-var should = require('should');
+require('should');
 
 var comandos = require('./mocks/exec')('comandos');
 var commandList = require(__dirname + '/../src/commands/comandos').commandList;

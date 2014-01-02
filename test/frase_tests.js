@@ -1,4 +1,4 @@
-var should = require('should');
+require('should');
 
 var frase = require('./mocks/exec')('frase');
 var quotes = require(__dirname + '/../src/commands/frase').quotes;

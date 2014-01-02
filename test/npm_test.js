@@ -1,4 +1,4 @@
-var should = require('should');
+require('should');
 
 var npm = require('./mocks/exec')('npm');
 
