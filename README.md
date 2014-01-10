@@ -4,21 +4,21 @@ Um robô para o canal #nodebr na Freenode.
 
 ## Comandos atuais
 
-* !comandos (Exibe uma lista com todos os comandos existentes)
+* `!comandos` (Exibe uma lista com todos os comandos existentes)
 
-* !eval <comando> (Executa o comando dentro da V8 e retorna o resultado)
+* `!eval` <comando> (Executa o comando dentro da V8 e retorna o resultado)
 
-* !npm <modulo> (Busca a descrição de um módulo através do [npmjs.org][npm])
+* `!npm` <modulo> (Busca a descrição de um módulo através do [npmjs.org][npm])
 
-* !frase (Apresenta uma frase aleatória)
+* `!frase` (Apresenta uma frase aleatória)
 
-* !hello (Apresenta "Hello world")
+* `!hello` (Apresenta "Hello world")
 
-* !recorde (Apresenta o pico de usuários simultâneos registrado no canal)
+* `!recorde` (Apresenta o pico de usuários simultâneos registrado no canal)
 
-* !hn (Apresenta uma notícia do Hacker News)
+* `!hn` (Apresenta uma notícia do Hacker News)
 
-* !tagarelas (Exibe um Top 5 dos usuários que mais falam no canal)
+* `!tagarelas` (Exibe um Top 5 dos usuários que mais falam no canal)
 
 ## Como utilizar
 
@@ -31,14 +31,14 @@ Em poucos segundos após a inicialização o bot deve se conectar ao canal indic
 
 Para rodar os testes: `npm test` ou `make test`.
 
-## Compilando o shell do V8 (necessário para o comando !eval)
+## Adquirindo o shell do V8
 
-    $ svn co http://v8.googlecode.com/svn/trunk v8-trunk
-    $ cd v8-trunk && make dependencies
-    $ make native
+**Necessário para executar o comando `!eval`.**
 
+    $ git clone https://code.google.com/p/v8-shell-bin/
+    $ sudo install -v v8-shell-bin/linux-x64/shell-v8 /usr/bin/shell-v8
 
-Depois de compilado, atualize o [config.json][config] modificando a propriedade `shell` para o caminho absoluto do shell do V8, que após a compilação neste exemplo, pode ser encontrado em `v8-trunk/out/native/shell`.
+O caminho do shell do V8 deve ser mapeado pelo `config.json` através da propriedade `shell`, sendo `/usr/bin/shell-v8` o caminho padrão.
 
 ## Contribua
 
