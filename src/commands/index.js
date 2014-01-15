@@ -1,8 +1,7 @@
 /*
  * ESTE ARQUIVO NÃO É UM COMANDO
  *
- * É o tratamento para todo mensagem enviada
- * no canal
+ * É o tratamento para toda mensagem enviada no canal
  */
 
 var util = require('util');
