@@ -83,6 +83,7 @@ bot.addListener('join' + CHANNEL, function(nick) {
 
 bot.addListener('error', function() {
   console.log('Internal Error');
+  process.exit(1);
 });
 
 /*
