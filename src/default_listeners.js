@@ -81,9 +81,8 @@ bot.addListener('join' + CHANNEL, function(nick) {
  * Handler de exceções não capturadas
  */
 
-bot.addListener('error', function() {
-  console.log('Internal Error');
-  process.exit(1);
+bot.addListener('error', function(err) {
+  throw err;
 });
 
 /*
