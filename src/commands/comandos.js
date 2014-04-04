@@ -12,11 +12,11 @@ fs.readdirSync(__dirname).forEach(function(file) {
   }
 });
 
-var frase = function(bot, data, nick, args, end) {
+var comandos = function(bot, data, nick, args, end) {
   bot.message(commandList.join(' '));
   end();
 };
 
-exports.run = frase;
+exports.run = comandos;
 
 exports.commandList = commandList;
