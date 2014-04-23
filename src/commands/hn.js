@@ -47,7 +47,7 @@ var hn = function(bot, data, nick, args, end) {
 
       if ($(this).find('td.subtext').length === 1) {
 
-        // scraping da URL da thread da notícia e da quantidade
+        // scraping da thread da notícia
 
         var threadURI = $(this).find('td.subtext a').next().attr('href');
         currentItem.thread = hackerNewsURL + threadURI;
@@ -68,12 +68,12 @@ var hn = function(bot, data, nick, args, end) {
       }
     });
 
-    function printItem(item) {
+    var printItem = function(item) {
       bot.message(item.title + ' (' + item.url + ')');
       bot.message('HN: ' + item.thread);
       bot.message('Pontos: ' + item.points + ' | Comentários: ' + item.comments);
       end();
-    }
+    };
 
     var keyPoints = Object.keys(news);
 
