@@ -31,15 +31,6 @@ Em poucos segundos após a inicialização o bot deve se conectar ao canal indic
 
 Para rodar os testes: `npm test` ou `make test`.
 
-## Obtendo o shell do V8
-
-**Necessário para executar o comando `!eval`.**
-
-    $ git clone https://code.google.com/p/v8-shell-bin/
-    $ sudo install -v v8-shell-bin/linux-x64/shell-v8 /usr/bin/shell-v8
-
-**OBS:** O caminho do shell do V8 deve ser mapeado pelo `config.json` através da propriedade `shell`, sendo `/usr/bin/shell-v8` o caminho padrão.
-
 ## Contribua
 
 Saiba como adicionar novos comandos através deste [exemplo][exemplo].

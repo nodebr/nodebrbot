@@ -25,4 +25,11 @@ describe('!eval', function() {
     });
   });
 
+  it('!eval (typeof window) + (typeof require) + (typeof process);', function(done) {
+    _eval('(typeof window) + (typeof require) + (typeof process);', function(output) {
+      output.should.be.equal('nickpadrao, undefinedundefinedundefined');
+      done();
+    });
+  });
+
 });
