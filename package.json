@@ -10,7 +10,8 @@
     "cubby": "0.0.3",
     "moment": "~2.4.0",
     "scrap": "~0.1.0",
-    "underscore.string": "~2.3.3"
+    "underscore.string": "~2.3.3",
+    "request": "^2.34.0"
   },
   "devDependencies": {
     "mocha": "~1.15.1",

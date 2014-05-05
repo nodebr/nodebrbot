@@ -3,7 +3,7 @@
  * módulo do npmjs.org
  */
 
-var scrap = require('scrap');
+var request = require('request');
 
 var npm = function(bot, data, nick, args, end) {
 
@@ -14,14 +14,15 @@ var npm = function(bot, data, nick, args, end) {
     return false;
   }
 
-  scrap('https://npmjs.org/package/' + module, function(err, $) {
-    if (err) {
+  request('https://registry.npmjs.org/' + module, function(err, headers, body) {
+    if (err || headers.statusCode !== 200) {
       bot.message('Erro ao buscar módulo');
       return false;
     }
 
     try {
-      bot.message(module + ': ' + $('p.description').html());
+      var json = JSON.parse(body);
+      bot.message(module + ': ' + json.description);
       bot.message('Para mais informações: https://npmjs.org/package/' + module);
     } catch(err) {
       bot.message('Erro ao buscar módulo');
@@ -33,3 +34,4 @@ var npm = function(bot, data, nick, args, end) {
 };
 
 exports.run = npm;
+
