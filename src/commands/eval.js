@@ -1,8 +1,3 @@
-/*
- * Executa códigos em uma shell compilada do V8.
- * Par compilar a shell leia o README
- */
-
 var fork = require('child_process').fork;
 
 var _eval = function(bot, data, nick, args, end) {
