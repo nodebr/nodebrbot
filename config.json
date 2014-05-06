@@ -2,6 +2,5 @@
   "server": "irc.freenode.net",
   "nick": "nodebrbot",
   "channel": "#nodebr",
-  "shell" : "/usr/bin/shell-v8",
   "logger": false
 }
