@@ -3,6 +3,3 @@ node_js:
   - "0.8"
   - "0.10"
   - "0.11"
-before_script:
-  - git clone https://code.google.com/p/v8-shell-bin/
-  - sudo install -v v8-shell-bin/linux-x64/shell-v8 /usr/bin/shell-v8
