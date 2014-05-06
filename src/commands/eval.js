@@ -3,12 +3,9 @@
  * Par compilar a shell leia o README
  */
 
-var spawn = require('child_process').spawn;
-var config = require(__dirname + '/../../config.json');
-var _str = require('underscore.string');
+var fork = require('child_process').fork;
 
 var _eval = function(bot, data, nick, args, end) {
-  var v8 = spawn(config.shell);
   var str = args.join(' ');
   var terminado = false;
 
@@ -26,6 +23,12 @@ var _eval = function(bot, data, nick, args, end) {
    */
   var timer = setTimeout(function() {
     terminar(nick + ', ocorreu um erro: seu comando demorou muito para terminar.');
+
+    try {
+      vm.kill();
+    } catch(err){
+      // provavelmente a vm já saiu...
+    }
   }, 2000);
 
   /*
@@ -37,36 +40,18 @@ var _eval = function(bot, data, nick, args, end) {
     terminado = true;
 
     clearTimeout(timer);
+
     bot.message(msg);
-    v8.kill();
+
     end();
   };
 
-  /*
-   * Escutando por erros do shell. Infelizmente alguns outputs também
-   * estão sendo redirecionados para o stderr, por isso temos que filtrar..
-   */
-  v8.stderr.setEncoding('utf8');
-  v8.stderr.on('data', function(data) {
-    if (data.indexOf('V8 version') === -1 && data.charAt(0) !== '>' && !_str.isBlank(data)) {
-      terminar(nick + ', ' + data.replace('(shell):1: ', ''));
-    }
+  var vm = fork(__dirname + '/resources/vm_eval.js');
+  vm.on('message', function(result){
+    terminar(nick + ', ' + result);
   });
 
-  /*
-   * Resposta quando deu tudo certo...
-   */
-  v8.stdout.setEncoding('utf8');
-  v8.stdout.on('data', function(data) {
-    terminar(nick + ', ' + data);
-  });
-
-  /*
-   * Escreve o comando inteiro do usuário e finaliza o stdin para que
-   * o shell interprete o código.
-   */
-  v8.stdin.write(str);
-  v8.stdin.end();
+  vm.send(str);
 };
 
 exports.run = _eval;
