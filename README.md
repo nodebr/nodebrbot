@@ -20,6 +20,8 @@ Um robô para o canal #nodebr na Freenode.
 
 * `!tagarelas` (Exibe um Top 5 dos usuários que mais falam no canal)
 
+*  `!gif` <termo> (Exibe a URL de uma gif através da API giphy)
+
 ## Como utilizar
 
     $ git clone https://github.com/zonetti/nodebrbot.git
