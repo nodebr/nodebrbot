@@ -8,9 +8,9 @@
 var request = require('request');
 
 var gif = function(bot, data, nick, args, end) {
-  var module = args[0];
+  var module = encodeURIComponent(args.join(' '));
 
-  if (args.length > 1 || module === '') {
+  if (args.length < 1 || module.trim() === '') {
     bot.message('Comando inválido. Exemplo: !gif cat');
     return false;
   }
