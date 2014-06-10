@@ -8,9 +8,8 @@
 var request = require('request');
 
 var gif = function(bot, data, nick, args, end) {
-  var module = args[0];
-
-  if (args.length > 1 || module === '') {
+  var module = args.join('+');
+  if (module === '') {
     bot.message('Comando inválido. Exemplo: !gif cat');
     return false;
   }
