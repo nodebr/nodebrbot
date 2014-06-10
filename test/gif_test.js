@@ -11,5 +11,4 @@ describe('!gif', function() {
     });
   });
 
-
 });
