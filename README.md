@@ -37,6 +37,6 @@ Para rodar os testes: `npm test` ou `make test`.
 
 Saiba como adicionar novos comandos através deste [exemplo][exemplo].
 
-[exemplo]: https://github.com/zonetti/nodebrbot/blob/master/src/commands/hello.js
-[config]: https://github.com/zonetti/nodebrbot/blob/master/config.json
+[exemplo]: https://github.com/nodebr/nodebrbot/blob/master/src/commands/hello.js
+[config]: https://github.com/nodebr/nodebrbot/blob/master/config.json
 [npm]: https://npmjs.org/
