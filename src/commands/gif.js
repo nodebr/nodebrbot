@@ -8,6 +8,7 @@
 var request = require('request');
 
 var gif = function(bot, data, nick, args, end) {
+
   var module = encodeURIComponent(args.join(' '));
 
   if (args.length < 1 || module.trim() === '') {
