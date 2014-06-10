@@ -1,3 +1,5 @@
+/* jshint camelcase: false */
+
 /*
  *  Mostra um gif baseado na palavra chave
  *  atraves da busca na API do giphy
