@@ -1,4 +1,4 @@
-/*  
+/*
  *  Mostra um gif baseado na palavra chave
  *  atraves da busca na API do giphy
  */
@@ -13,12 +13,12 @@ var gif = function(bot, data, nick, args, end) {
     return false;
   }
 
-   request('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + module, function(err, headers, body) {
+  request('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + module,
+  function(err, headers, body) {
     if (err || headers.statusCode !== 200) {
       bot.message('Erro ao buscar gif');
       return false;
     }
-
     try {
       var json = JSON.parse(body);
       bot.message(json.data.image_original_url);
@@ -28,8 +28,6 @@ var gif = function(bot, data, nick, args, end) {
 
     end();
   });
-
-
-}
+};
 
 exports.run = gif;
