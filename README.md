@@ -6,9 +6,9 @@ Um robô para o canal #nodebr na Freenode.
 
 * `!comandos` (Exibe uma lista com todos os comandos existentes)
 
-* `!eval` <comando> (Executa o comando dentro da V8 e retorna o resultado)
+* `!eval` (Executa o comando dentro de uma VM e retorna o resultado)
 
-* `!npm` <modulo> (Busca a descrição de um módulo através do [npmjs.org][npm])
+* `!npm` (Busca a descrição de um módulo através do [npmjs.org][npm])
 
 * `!frase` (Apresenta uma frase aleatória)
 
@@ -20,7 +20,7 @@ Um robô para o canal #nodebr na Freenode.
 
 * `!tagarelas` (Exibe um Top 5 dos usuários que mais falam no canal)
 
-*  `!gif` <termo> (Exibe a URL de uma gif através da API giphy)
+*  `!gif` (Exibe a URL de uma gif através da API giphy)
 
 ## Como utilizar
 
