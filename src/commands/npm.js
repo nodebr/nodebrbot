@@ -4,7 +4,6 @@
  */
 
 var request = require('request');
-var irc = require('irc');
 
 var npm = function(bot, data, nick, args, end) {
 
@@ -49,14 +48,12 @@ var npm = function(bot, data, nick, args, end) {
           packages.pop();
 
         response = packages.map(function(pkg){
-          return pkg.name + irc.colors.wrap('bold', ' ★') + (pkg.stars || 0);
+          return pkg.name + ' ★' + (pkg.stars || 0);
         }).join(', ');
 
         if(response.length > 512)
           loop(++index);
       })(0);
-
-      console.log(response);
 
       bot.message(response);
       end();
