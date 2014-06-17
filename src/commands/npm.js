@@ -31,7 +31,7 @@ var npm = function(bot, data, nick, args, end) {
 
       end();
     });
-  else if(command === 'search'){
+  else if(['search', 'find', 's', 'f'].indexOf(command) !== -1){
     var encoded = encodeURIComponent(args.slice(1).join(' '));
     request('http://node-modules.com/search.json?q=' + encoded, function(err, res, body){
       if(err){
