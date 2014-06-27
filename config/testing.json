@@ -1,0 +1,6 @@
+{
+    "irc": {
+        "channel": "#nodebrbottest",
+        "nick" : "nodebrbotter"
+    }
+}
