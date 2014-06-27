@@ -1,20 +1,26 @@
 {
   "name": "nodebrbot",
-  "version": "0.0.3",
+  "version": "0.1.0-alpha",
   "private": true,
   "scripts": {
     "test": "make test"
   },
   "dependencies": {
-    "irc": "~0.3.6",
-    "cubby": "0.0.3",
-    "moment": "~2.4.0",
-    "scrap": "~0.1.0",
-    "request": "~2.34.0"
+    "async": "^0.9.0",
+    "cheerio": "^0.17.0",
+    "eventemitter2": "^0.4.14",
+    "irc": "^0.3.6",
+    "level": "^0.18.0",
+    "minimist": "^0.2.0",
+    "moment": "^2.4.0",
+    "request": "^2.34.0",
+    "requi": "^0.2.2",
+    "shell-quote": "^1.4.1",
+    "xconf": "^0.0.2"
   },
   "devDependencies": {
-    "mocha": "~1.15.1",
-    "should": "~2.1.1",
-    "jshint": "~2.3.0"
+    "mocha": "^1.15.1",
+    "should": "^2.1.1",
+    "jshint": "^2.3.0"
   }
 }

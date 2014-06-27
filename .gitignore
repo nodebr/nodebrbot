@@ -1,2 +1,4 @@
 node_modules
-data.json
+db
+config/testing.json
+config/production.json
