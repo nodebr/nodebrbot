@@ -2,3 +2,4 @@ node_modules
 db
 config/testing.json
 config/production.json
+npm-debug.log
