@@ -26,3 +26,7 @@ ev.on('bot.message', function(to, msg){
         bot.say(to, msg);
 });
 
+ev.on('irc.getWhois', function(name, callback){
+    bot.whois(name, callback);
+});
+
