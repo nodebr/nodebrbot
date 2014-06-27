@@ -9,6 +9,6 @@ test-watch:
 		--reporter $(REPORTER) -b -t 10000 -w test/*.js
 
 hint:
-	@./node_modules/.bin/jshint src test
+	@./node_modules/.bin/jshint command lib listener resource service test
 
 .PHONY: test test-watch

@@ -1,5 +1,5 @@
 // Atualiza a lista de usuários online
-// TODO: ainda não coinsigo retirar usuários da lista...
+// TODO: ainda não consigo retirar usuários da lista...
 
 var e = require(__dirname + '/../lib/event');
 var config = require(__dirname + '/../lib/config');

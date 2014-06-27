@@ -1,5 +1,5 @@
 node_modules
 db
-config/testing.json
-config/production.json
+config/*
+!config/default.json
 npm-debug.log

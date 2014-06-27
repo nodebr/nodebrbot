@@ -30,7 +30,7 @@ e.on('command.exec.npm', function(args){
                 } catch (err) {
                     helper.say('Erro ao buscar módulo');
                 }
-        });
+            });
     else if (['search', 'find', 's', 'f'].indexOf(command) !== -1) {
         var encoded = encodeURIComponent(args._.slice(1).join(' '));
         request('http://node-modules.com/search.json?q=' + encoded,
@@ -55,7 +55,7 @@ e.on('command.exec.npm', function(args){
                 })(0);
 
                 helper.say(response);
-        });
+            });
     } else {
         var msg = 'Comando inválido, utilize ' +
         '!npm search <expressão> ou !npm show <pacote>';

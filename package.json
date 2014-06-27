@@ -2,6 +2,7 @@
   "name": "nodebrbot",
   "version": "0.1.0-alpha",
   "private": true,
+  "license": "MIT <http://opensource.org/licenses/MIT>",
   "scripts": {
     "test": "make test"
   },
