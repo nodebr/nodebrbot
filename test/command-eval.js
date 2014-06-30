@@ -1,51 +1,39 @@
-var command = require(__dirname + '/mock/command')('coin');
+var command = require(__dirname + '/mock/command')('eval');
 require('should');
 
-describe('Testes do comando eval', function() {
+describe('Testes do comando eval', function () {
 
-    it('!coin usuariosemcarteira', function(done) {
-        command('!coin usuariosemcarteira', function(output) {
-            output.should.contain(' não configurou uma carteira');
+    it('!eval Math.pow(5, 4)', function (done) {
+        command('!eval Math.pow(5, 4)', function (output) {
+            output.should.contain(625);
             done();
         });
     });
 
-    it('!coin carteira invalida', function(done) {
-        command('!coin carteira invalida', function(output) {
-            output.should.contain('carteira enviada é inválida');
+    it('!eval while(true){}', function (done) {
+        command('!eval while(true){}', function (output) {
+            output.should.contain('o comando demorou para terminar');
             done();
         });
     });
 
-    it('!coin carteira 12cNWHgdXBnQU9CtkhzoW6qRtpphREnEdQ', function(done) {
-        command('!coin carteira 12cNWHgdXBnQU9CtkhzoW6qRtpphREnEdQ',
-            function(output) {
-                output.should.contain('foi configurada com sucesso');
-                done();
-            });
-    });
-
-    it('!coin test', function(done) {
-        command('!coin test', function(output) {
-            output.should.contain('envie os bitcoins para o endereço');
-            done();
+    it('!eval var soma=function(n1,n2){return n1+n2;};soma(2,3);',
+        function (done) {
+            command('!eval var soma=function(n1,n2){return n1+n2;};soma(2,3);',
+                function (output) {
+                    output.should.contain(5);
+                    done();
+                });
         });
-    });
 
-    it('!coin pedir test', function(done) {
-        command('!coin pedir test', function(output) {
-            output.should.contain('utilize o comando !coin test para ' +
-            'gerar um endereço');
-
-            done();
+    it('!eval (typeof window) + (typeof require) + (typeof process);',
+        function (done) {
+            command('!eval (typeof window) + (typeof require)' +
+            ' + (typeof process);',
+                function (output) {
+                    output.should.contain('undefinedundefinedundefined');
+                    done();
+                });
         });
-    });
-
-    it('!coin', function(done) {
-        command('!coin', function(output) {
-            output.should.contain('configure sua carteira para receber');
-            done();
-        });
-    });
 
 });

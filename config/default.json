@@ -7,9 +7,9 @@
     },
     "http": {
         "port": 8083,
-        "url" : "http://localhost"
+        "url" : "http://local.server:8083"
     },
     "blockchain": {
-        "secret": "tQA4OmdE-<N/}.$=ZST[W+oOR"
+        "secret": "xk7nnCZ4EHYfar9j3qz6Q8AY-"
     }
 }
