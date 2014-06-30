@@ -1,6 +1,8 @@
 REPORTER=spec
 
-test: hint
+test: hint jstest
+
+jstest:
 	@./node_modules/.bin/mocha \
 		--reporter $(REPORTER) -t 10000 test/*.js
 

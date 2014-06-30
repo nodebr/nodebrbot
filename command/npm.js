@@ -26,11 +26,12 @@ e.on('command.exec.npm', function(args){
                 try {
                     var json = JSON.parse(body);
                     helper.say(args._[1] + ': ' + json.description);
-                    helper.say('Link: https://npmjs.org/package/' + args[1]);
+                    helper.say('Link: https://npmjs.org/package/' + args._[1]);
                 } catch (err) {
                     helper.say('Erro ao buscar módulo');
                 }
             });
+
     else if (['search', 'find', 's', 'f'].indexOf(command) !== -1) {
         var encoded = encodeURIComponent(args._.slice(1).join(' '));
         request('http://node-modules.com/search.json?q=' + encoded,
