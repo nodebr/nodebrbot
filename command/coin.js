@@ -2,6 +2,7 @@
 // das tranações de bitocoin e mostrar no canal
 
 var e = require(__dirname + '/../lib/event');
+var config = require(__dirname + '/../lib/config');
 var helper = require(__dirname + '/../lib/helper');
 var request = require('request');
 var address = require('bitcoin-address');
@@ -56,9 +57,12 @@ e.on('command.exec.coin', function(args, nick){
                 return helper.say(text);
             }
 
+            var callback = encodeURIComponent(config.http.url +
+            '/api/v1/blockchain?secret=' + config.blockchain.secret);
+
             var url = '/api/receive?method=create&cors=true&format=plain&' +
             'address=' + wallet + '&shared=false&' +
-            'callback=http%3A%2F%2Fgoogle.com.br';
+            'callback=' + callback;
 
             request('https://blockchain.info/' + url, function(err, res, body){
                 if(err)
@@ -69,10 +73,21 @@ e.on('command.exec.coin', function(args, nick){
                     'para enviar a doação, tente mais tarde.');
 
                 var json = JSON.parse(body);
+                var donation = {
+                    from : nick,
+                    to : args._[0],
+                    date : new Date()
+                };
 
-                helper.say('Para enviar uma doação para o usuário ' +
-                args._[0] + ' envie os bitcoins para o endereço ' +
-                json.input_address);
+                db.put('donation::' + json.input_address, donation,
+                    function(err){
+                        if(err)
+                            throw err;
+
+                        helper.say('Para enviar uma doação para o usuário ' +
+                        args._[0] + ' envie os bitcoins para o endereço ' +
+                        json.input_address);
+                    });
             });
 
         });
@@ -85,3 +100,25 @@ e.on('command.exec.coin', function(args, nick){
     'comando !coin usuario. Peça doações usando !coin pedir usuario.');
 });
 
+// Escutamos pelos pagamentos do blockchain
+e.on('http.v1.get.blockchain', function(req, res){
+    if(req.query.secret !== config.blockchain.secret)
+        return res.send(401, 'Wront secret.');
+
+    if(Number(req.query.confirmations) > 0)
+        return res.send(200);
+
+    db.get('donation::' + req.query.address, function(err, donation){
+        if(err && !err.notFound)
+            throw err;
+
+        if(err && err.notFound)
+            return res.send(200);
+
+        var btc = Number(req.query.value) / 100000000;
+        helper.say('[Doação] O usuário ' + donation.from + ' acabou de doar ' +
+        btc + 'BTC para ' + donation.to);
+
+        res.send(200);
+    });
+});
