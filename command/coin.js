@@ -59,10 +59,11 @@ e.on('command.exec.coin', function(args, nick){
                 return helper.say(text);
             }
 
-            var donation = puid.generate();
+
+            var donationId = puid.generate();
             var callback = encodeURIComponent(config.http.url +
             '/api/v1/blockchain?secret=' + config.blockchain.secret + '&' +
-            'donation=' + donation);
+            'donation=' + donationId);
 
             var url = '/api/receive?method=create&cors=true&format=plain&' +
             'address=' + wallet + '&shared=false&' +
@@ -83,7 +84,7 @@ e.on('command.exec.coin', function(args, nick){
                     date : new Date()
                 };
 
-                db.put('donation::' + donation, donation,
+                db.put('donation::' + donationId, donation,
                     function(err){
                         if(err)
                             throw err;
