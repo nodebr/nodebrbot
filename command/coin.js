@@ -7,6 +7,8 @@ var helper = require(__dirname + '/../lib/helper');
 var request = require('request');
 var address = require('bitcoin-address');
 var db = require(__dirname + '/../lib/db');
+var Puid = require('puid');
+var puid = new Puid();
 
 e.on('command.probe.coin', function(callback){
 
@@ -57,8 +59,10 @@ e.on('command.exec.coin', function(args, nick){
                 return helper.say(text);
             }
 
+            var donation = puid.generate();
             var callback = encodeURIComponent(config.http.url +
-            '/api/v1/blockchain?secret=' + config.blockchain.secret);
+            '/api/v1/blockchain?secret=' + config.blockchain.secret + '&' +
+            'donation=' + donation);
 
             var url = '/api/receive?method=create&cors=true&format=plain&' +
             'address=' + wallet + '&shared=false&' +
@@ -79,7 +83,7 @@ e.on('command.exec.coin', function(args, nick){
                     date : new Date()
                 };
 
-                db.put('donation::' + json.input_address, donation,
+                db.put('donation::' + donation, donation,
                     function(err){
                         if(err)
                             throw err;
@@ -108,7 +112,7 @@ e.on('http.v1.get.blockchain', function(req, res){
     if(Number(req.query.confirmations) > 0)
         return res.send(200);
 
-    db.get('donation::' + req.query.address, function(err, donation){
+    db.get('donation::' + req.query.donation, function(err, donation){
         if(err && !err.notFound)
             throw err;
 
