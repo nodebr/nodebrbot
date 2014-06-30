@@ -11,6 +11,7 @@
     "bitcoin-address": "^0.2.0",
     "cheerio": "^0.17.0",
     "eventemitter2": "^0.4.14",
+    "express": "^4.4.5",
     "irc": "^0.3.6",
     "leveldown": "^0.10.2",
     "levelup": "^0.18.5",

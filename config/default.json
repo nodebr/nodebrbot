@@ -4,5 +4,12 @@
         "nick": "meubot",
         "channel": "#canaldomeubot",
         "logger": false
+    },
+    "http": {
+        "port": 8080,
+        "url" : "http://localhost"
+    },
+    "blockchain": {
+        "secret": "tQA4OmdE-<N/}.$=ZST[W+oOR"
     }
 }
