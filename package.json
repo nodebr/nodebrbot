@@ -16,7 +16,7 @@
     "leveldown": "^0.10.2",
     "levelup": "^0.18.5",
     "minimist": "^0.2.0",
-    "moment": "^2.4.0",
+    "moment": "^2.7.0",
     "puid": "^0.5.4",
     "request": "^2.34.0",
     "requi": "^0.2.2",
