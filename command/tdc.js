@@ -4,7 +4,9 @@
 var e = require(__dirname + '/../lib/event');
 var helper = require(__dirname + '/../lib/helper');
 var db = require(__dirname + '/../lib/db');
+/* jshint -W101 */
 var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+/* jshint +W101 */
 var Puid = require('puid');
 var puid = new Puid();
 
