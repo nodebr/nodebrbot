@@ -12,6 +12,7 @@
     "cheerio": "^0.17.0",
     "eventemitter2": "^0.4.14",
     "express": "^4.4.5",
+    "html-md": "^3.0.2",
     "irc": "^0.3.6",
     "leveldown": "^0.10.2",
     "levelup": "^0.18.5",
@@ -24,8 +25,9 @@
     "xconf": "^0.0.2"
   },
   "devDependencies": {
+    "jshint": "^2.5.0",
     "mocha": "^1.15.1",
-    "should": "^2.1.1",
-    "jshint": "^2.3.0"
+    "mocha-make-stub": "^2.0.0",
+    "should": "^2.1.1"
   }
 }
