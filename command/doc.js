@@ -16,13 +16,16 @@ function serializeDoc(mainModule, name, mod) {
     // não consegui encontrar uma solução só com regexp que não inserisse um '_'
     // desnecessário quando `mod.textRaw` terminasse em um caractere especial
     // (especialmente, se os últimos dois caracteres forem especiais)
-    var section = mod.textRaw
-        .split(/[^a-zA-Z]+/)
-        .filter(function(x) {
-          return !!x;
-        })
-        .join('_')
-        .toLowerCase();
+    var section;
+    if(mod.textRaw) {
+        section = mod.textRaw
+            .split(/[^a-zA-Z]+/)
+            .filter(function(x) {
+              return !!x;
+            })
+            .join('_')
+            .toLowerCase();
+    } else section = '';
 
     var link = HOST + mainModule + '.html#' + mainModule + '_' + section;
 
@@ -57,6 +60,7 @@ function dispatch(fns) {
 exports.dispatch = dispatch;
 
 function findModule(json, paths, name) {
+    var rootNode = (json.modules || json.globals) || {};
     var ret = paths.slice(1).reduce(function(targetModule, path) {
         // Veja M. Fogus "Functional Javascript" capítulo 5
         var find = dispatch([
@@ -64,10 +68,11 @@ function findModule(json, paths, name) {
             findWithName.bind(null, targetModule.classes),
             findWithName.bind(null, targetModule.methods),
             findWithName.bind(null, targetModule.properties),
-            findWithName.bind(null, targetModule.events)
+            findWithName.bind(null, targetModule.events),
+            findWithName.bind(null, targetModule.globals)
         ]);
         return find(name) || find(path) || targetModule;
-    }, json.modules[0]);
+    }, rootNode[0]);
 
     return ret;
 }
