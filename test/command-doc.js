@@ -77,4 +77,17 @@ describe('Testes do comando doc', function() {
             done();
         });
     });
+
+    it('!doc process', function(done) {
+        command('!doc process', function(output) {
+            output.should.equal(
+                '#canaldomeubot: test, global process --> ' +
+                'The `process` object is a global object and can be ' +
+                'accessed from anywhere. It is an instance of \\[Ev... ' +
+                'http://nodejs.org/api/process.html#process_process' +
+                '\n'
+            );
+            done();
+        });
+    });
 });
